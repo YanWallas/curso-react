@@ -8,7 +8,7 @@ export default function App() {
       Olá mundo!
       <Bemvindo />
       <h1> Bem Vindo ao sistema</h1>
-      <h2> Curso React </h2>vfvf
+      <h2> Curso React </h2>
     </div>
   );
 }
