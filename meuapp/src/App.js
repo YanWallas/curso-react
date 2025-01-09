@@ -1,26 +1,59 @@
 import React from 'react';
 
-const Bemvindo = (props) => {
-  // Conhecendo Props.
+const Equipe = (props) => {
   return (
     <div>
-      <h2> Bem Vindo(a) {props.nome} </h2>
-      <h3> Tenho {props.idade} Anos </h3>
+      <Sobre nome={props.nome} cargo={props.cargo} idade={props.idade} />
+      <Social fb={props.facebook} />
+      <hr />
     </div>
   );
 };
 
-export default function App() {
+const Sobre = (props) => {
   return (
-    <div className="App">
-      Olá mundo!
-      <Bemvindo
-        nome="Yan"
-        idade="26" /* Rederizando Const Bem vindo, com os props */
+    <div>
+      <h2>Olá sou o(a) {props.nome}</h2>
+      <h3>Cargo: {props.cargo}</h3>
+      <h3>Idade: {props.idade} anos</h3>
+    </div>
+  );
+};
+
+const Social = (props) => {
+  return (
+    <div>
+      <a href={props.fb}> Facebook </a>
+      <a href={props.fb}>LinkedIn </a>
+      <a href={props.fb}>Youtube </a>
+    </div>
+  );
+};
+
+function App() {
+  return (
+    <div>
+      <h1>Conheça nossa equipe:</h1>
+      <Equipe
+        nome="Lucas"
+        cargo="Programador"
+        idade="29"
+        facebook="https://google.com"
       />
-      <Bemvindo nome="Lima" idade="27" />
-      <Bemvindo nome="Maria" idade="24" />
-      <h2> Curso React </h2>
+      <Equipe
+        nome="Lima"
+        cargo="T.I"
+        idade="27"
+        facebook="https://google.com"
+      />
+      <Equipe
+        nome="Amanda"
+        cargo="Front-End"
+        idade="22"
+        facebook="https://google.com"
+      />
     </div>
   );
 }
+
+export default App;
