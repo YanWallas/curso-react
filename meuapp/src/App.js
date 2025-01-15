@@ -19,7 +19,7 @@ class App extends Component {
     if(nome !== '' && email !== '' && senha !== ''){
       alert(`Nome: ${nome} \nEmail: ${email} \nSenha: ${senha}`);
     }else {
-      this.setState({error: 'Ops! Parece que esta faltando algo!'})
+      this.setState({error: 'Ops! Parece que esta faltando algo!'});
     }
 
     event.preventDefault();
