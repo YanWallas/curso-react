@@ -7,7 +7,8 @@ function App() {
   const [input, setInput] = useState('');
 
   function handleAdd(){
-    setTarefas = ([...tarefas, input])
+    setTarefas([...tarefas, input])
+    setInput('');
   }
 
   return (
