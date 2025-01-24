@@ -42,8 +42,13 @@ function Filme(){
   }
 
   return(
-    <div>
-      <h1>Acessando Filme {id}</h1>
+    <div className="filme-info">
+      <h1>{filme.title}</h1>
+      <img src={`https://image.tmdb.org/t/p/original/${filme.backdrop_path}`} alt={filme.title}/>
+
+      <h3>Sinopse</h3>
+      <span>{filme.overview}</span>
+      <strong>Avaliação: {filme.vote_average} / 10</strong>
     </div>
   )
 }
