@@ -35,6 +35,7 @@ function Home(){
       </div>
     )
   }
+  
   return(
     <div className="container">
       <div className="lista-filmes">
