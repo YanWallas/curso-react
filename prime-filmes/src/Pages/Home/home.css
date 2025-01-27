@@ -1,7 +1,10 @@
 .lista-filmes{
-  max-width: 800px;
-  margin: 14px auto;
-  color: #FF0000;
+  display: grid;
+  max-width: 90%;
+  margin: 10px auto;
+  color: #FF0000;  
+  grid: auto-flow / 1fr 1fr 1fr 1fr 1fr;
+  gap: 5px;
 }
 
 .loading{
@@ -16,6 +19,7 @@
   background-color: #3b3b3b;
   padding: 15px;
   border-radius: 4px;
+  margin-bottom: 5px;
 }
 
 .lista-filmes strong{
