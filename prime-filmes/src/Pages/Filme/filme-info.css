@@ -5,10 +5,15 @@
   flex-direction: column;
   max-width: 800px;
   padding: 0 8px;
+  color: #FFF;
 }
 
 .filme-info h1{
   margin: 14px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff0000;
 }
 
 .filme-info img{
@@ -38,6 +43,7 @@
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.5s;
+  color: #ff0000;
 }
 
 .area-buttons button:hover{
@@ -47,7 +53,7 @@
 
 .area-buttons a{
   text-decoration: none;
-  color: #000;
+  color: #ff0000;
   transition: all 0.5s;
 }
 
