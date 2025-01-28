@@ -1,9 +1,9 @@
-
+import { db } from './firebasecConnection';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Teste </h1>
+    <div>
+      <h1>ReactJS + Firebase :) </h1>
     </div>
   );
 }
