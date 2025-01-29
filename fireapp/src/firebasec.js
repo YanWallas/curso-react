@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -14,5 +15,6 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);//inicializando Firebase
 
 const db = getFirestore(firebaseApp);//get para ter a conexão com o banco.
+const auth = getAuth(firebaseApp);//Para acessar a conexaõ com autentificação de usuario.
 
-export { db };
+export { db, auth };
