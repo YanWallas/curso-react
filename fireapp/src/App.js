@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { db } from './firebasecConnection';
+import { db } from './firebasec';
 import { doc, setDoc, collection, addDoc, getDoc } from 'firebase/firestore';
 import './app.css';
 
