@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { auth, db } from './firebasec';
 import { doc, setDoc, collection, addDoc, getDoc, getDocs, updateDoc, deleteDoc, onSnapshot } from 'firebase/firestore';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth';
 import './app.css';
 
 function App() {
@@ -35,6 +35,28 @@ function App() {
     }
 
     loadPosts();
+  }, [])
+
+  useEffect(() => {
+    async function checkLogin() {
+      onAuthStateChanged(auth, (user) => {
+        if(user){
+          //Se tem usuario logado ele entra aqui...
+          console.log(user);
+          setUser(true);
+          setUserDetail({
+            uid: user.uid,
+            email: user.email
+          })
+        }else{
+          //Não possui nenhum user logado.
+          setUser(false);
+          setUserDetail({})
+        }
+      })
+    }
+
+    checkLogin();
   }, [])
 
   async function handleAdd(){
