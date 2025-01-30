@@ -1,16 +1,28 @@
 import { useState } from "react";
 import './home.css';
 import { Link } from "react-router-dom";
+import { auth } from '../../firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from "react-router-dom";
 
 export default function Home(){
   const [email, setEmail] = useState('')
   const [password, setpassword] = useState('')
 
-  function handleLogin(e){
+  const navigate = useNavigate();
+
+  async function handleLogin(e){
     e.preventDefault();
     
     if(email !== '' && password !== ''){
-      alert("TESTE")
+      await signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        //navegar para /admin
+        navigate('/admin', { replace: true })
+      })
+      .catch(()=>{
+        console.log("ERRO AO FAZER O LOGIN!")
+      })
     }else{
       alert("Preencha todos os campos")
     }
@@ -30,14 +42,13 @@ export default function Home(){
         />
         
         <input 
-          autoComplete={false}
           type="password"
           placeholder="******"
           value={password}
           onChange={(e) => setpassword(e.target.value)}
         />
 
-        <button>Acessar</button>
+        <button type="submit">Acessar</button>
       </form>
 
       <Link className="button-link" to="/register">Não possui uma conta? Cadastre-se</Link>
