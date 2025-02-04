@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+//import { getStorage } from "firebase/storage"; - Se for mexer com foto no Firebase
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -16,6 +17,7 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 
 const auth = getAuth(firebaseApp);
-const db = getFirestore(firebaseConfig);
+const db = getFirestore(firebaseApp);
+// const storage = getStorage(firebaseApp);
 
-export { auth, db };
+export { auth, db/*, storage*/ };
