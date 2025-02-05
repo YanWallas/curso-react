@@ -33,18 +33,18 @@
   transform: scale(1.4);
 }
 
-.form-profille img{
+.form-profile img{
   margin-bottom: 1em;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.form-profille label{
+.form-profile label{
   margin-bottom: 0.5em;
   font-size: 1.4em;
 }
 
-.form-profille input, textarea, select{
+.form-profile input, textarea, select{
   margin-bottom: 1em;
   padding: 0.7em;
   border: 0;
@@ -52,11 +52,11 @@
   max-width: 600px;
 }
 
-.form-profille input:disabled{
+.form-profile input:disabled{
   cursor: not-allowed;
 }
 
-.form-profille button{
+.form-profile button{
   max-width: 600px;
 }
 
