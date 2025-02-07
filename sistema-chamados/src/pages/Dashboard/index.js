@@ -19,7 +19,7 @@ export default function Dashboard(){
             Novo Chamado
           </Link>
 
-          <table className="container dashboard">
+          <table>
             <thead>
               <tr>
                 <th scope="col">Cliente</th>
@@ -31,7 +31,7 @@ export default function Dashboard(){
             </thead>
             <tbody>
               <tr>
-                <td data-label="Cliente">mercado</td>
+                <td data-label="Cliente">mercado esquina</td>
                 <td data-label="Assunto">Suporte</td>
                 <td data-label="Status">
                   <span className="badge" style={{ backgroundColor: '#999'}}>Em aberto</span>
@@ -48,7 +48,7 @@ export default function Dashboard(){
               </tr>
 
               <tr>
-                <td data-label="Cliente">Informatica</td>
+                <td data-label="Cliente">Informatica TECH</td>
                 <td data-label="Assunto">Suporte</td>
                 <td data-label="Status">
                   <span className="badge" style={{ backgroundColor: '#999'}}>Em aberto</span>
