@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../contexts/auth";
+import { useEffect, useState } from "react";
+
 
 import Header from "../../components/Header";
 import Title from '../../components/Title';
