@@ -18,10 +18,13 @@ export default function Dashboard(){
 
   const [chamados, setChamados] = useState([]);//Array para armazenar chamados. 
   const [loading, setLoading] = useState(true);//controlar quando algo estiver carregando.
+
   const [lastDoc, setLastDocs] = useState(''); ///Armazenar o ultimo item buscar (para controlar as buscas)
   const [loadingMore, setLoadingMore] = useState(false);//Quando tiver buscando mais itens, vai ser true (contralar a busca)
-
   const [isEmpty, setIsEmpty] = useState(false);
+
+  const [showPostModal, setShowPostModal] = useState(false);
+  const [detail, setDetail] = useState();
 
   useEffect(() => {
     async function loadChamados(){
@@ -73,6 +76,11 @@ export default function Dashboard(){
     const q = query(listRef, orderBy('created', 'desc'), startAfter(lastDoc), limit(5));
     const querySnapshot = await getDocs(q);
     await updateState(querySnapshot);
+  }
+
+  function toggleModal(item){
+    setShowPostModal(!showPostModal)
+    setDetail(item)
   }
 
   if(loading){// enquanto estiver carregando(true).
@@ -139,7 +147,7 @@ export default function Dashboard(){
                         </td>
                         <td data-label="Cadastrado">{item.createdFormat}</td>
                         <td data-label="#">
-                          <button className="action" style={{ backgroundColor: '#3583f6' }}>
+                          <button className="action" style={{ backgroundColor: '#3583f6' }} onClick={() => toggleModal(item)}>
                             <FiSearch color="#FFF" size={17}/>
                           </button>
                           <Link to={`/new/${item.id}`}className="action" style={{ backgroundColor: '#f6a935' }}>
@@ -162,7 +170,13 @@ export default function Dashboard(){
         
       </div>
 
-      <Modal/>
+      {showPostModal && (
+        <Modal
+          conteudo={detail}
+          close={ () => setShowPostModal(!showPostModal) }
+        />
+      )}
+
     </div>
   )
 }
