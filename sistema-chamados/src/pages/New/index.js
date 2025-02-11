@@ -132,6 +132,7 @@ export default function New(){
       toast.success("Chamado Registrado!");
       setComplemento('');
       setCustomerSelected(0);
+      navigate('/dashboard');
     })
     .catch((error) => {
       console.log(error);
@@ -171,6 +172,7 @@ export default function New(){
               <option value="Suporte">Suporte</option>
               <option value="Visita Técnica">Visita Técnica</option>
               <option value="Financeiro">Financeiro</option>
+              <option value="Desenvolvimento">Desenvolvimento</option>
             </select>
 
             <label>Status</label>

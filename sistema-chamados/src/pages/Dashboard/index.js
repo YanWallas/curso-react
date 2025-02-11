@@ -22,7 +22,7 @@ export default function Dashboard(){
 
   useEffect(() => {
     async function loadChamados(){
-      const q = query(listRef, orderBy('created', 'desc'), limit(10));
+      const q = query(listRef, orderBy('created', 'desc'), limit(5));
 
       const querySnapshot = await getDocs(q);
       setChamados([]);
@@ -67,7 +67,7 @@ export default function Dashboard(){
   async function handleMore(){
     setLoadingMore(true);
 
-    const q = query(listRef, orderBy('created', 'desc'), startAfter(lastDoc), limit(10));
+    const q = query(listRef, orderBy('created', 'desc'), startAfter(lastDoc), limit(5));
     const querySnapshot = await getDocs(q);
     await updateState(querySnapshot);
   }
