@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../contexts/auth";
 
 import Header from "../../components/Header";
 import Title from '../../components/Title';
@@ -9,10 +9,13 @@ import './dashboard.css';
 import { collection, getDocs, orderBy, limit, startAfter, query } from "firebase/firestore";
 import { db } from "../../services/firebase";
 import { format } from 'date-fns';
+import Modal from "../../components/Modal/Index";
 
 const listRef = collection(db, "chamados");
 
 export default function Dashboard(){
+  const { logout } = useContext(AuthContext);
+
   const [chamados, setChamados] = useState([]);//Array para armazenar chamados. 
   const [loading, setLoading] = useState(true);//controlar quando algo estiver carregando.
   const [lastDoc, setLastDocs] = useState(''); ///Armazenar o ultimo item buscar (para controlar as buscas)
@@ -158,6 +161,8 @@ export default function Dashboard(){
         </>
         
       </div>
+
+      <Modal/>
     </div>
   )
 }
