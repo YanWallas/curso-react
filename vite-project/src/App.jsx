@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ButtonSubmit } from './Button'
 import { NewUser } from './Transition'
+import { NewActionState } from './NewActionState'
 
 function App() {
   const [message, setMessage] = useState("")
@@ -46,6 +47,9 @@ function App() {
       <hr/>
 
       <NewUser/>
+      <hr/>
+
+      <NewActionState/>
     </div>
   )
 }
