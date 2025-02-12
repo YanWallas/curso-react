@@ -1,24 +1,34 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import './App.css'
 import { Header } from './Header';
 
 
 function App() {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [username, setUsername] = useState("")
-  const [description, setDescription] = useState("")
-  const [type, setType] = useState("user")
+  // NÃO PRECISA MAIS SE USARMOS A USEREF 
+  // const [name, setName] = useState("")
+  // const [email, setEmail] = useState("")
+  // const [username, setUsername] = useState("")
+  // const [description, setDescription] = useState("")
+  // const [type, setType] = useState("user")
+
+  // ========================================
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const userNameRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const typeRef = useRef("user");
+
+  const [input, setInput] = useState('');
 
   function handleSave(e){
     e.preventDefault();
 
     console.log({
-      name,
-      email,
-      username,
-      description,
-      type,
+      name: nameRef.current?.value,
+      email: emailRef.current?.value,
+      username: userNameRef.current?.value,
+      description: descriptionRef.current?.value,
+      type: typeRef.current?.value,
     })
   }
 
@@ -28,44 +38,48 @@ function App() {
       <h1>React</h1>
       <Header/>
 
+
       <form className="form" onSubmit={handleSave}>
+      <input
+          type="text"
+          placeholder="Teste de renderização com Sates"
+          className="input"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
+
         <input
           type="text"
-          value={name}
-          onChange={ (event) => setName(event.target.value) }
           placeholder="Digite seu nome..."
           className="input"
+          ref={nameRef}
         />
 
         <input
           type="text"
-          value={email}
-          onChange={ (event) => setEmail(event.target.value) }
           placeholder="Digite seu email..."
           className="input"
+          ref={emailRef}
         />
 
         <input
           type="text"
-          value={username}
-          onChange={ (event) => setUsername(event.target.value) }
           placeholder="Digite seu username..."
           className="input"
+          ref={userNameRef}
         />
 
         <textarea
           type="text"
-          value={description}
-          onChange={ (event) => setDescription(event.target.value) }
           placeholder="Digite sua descriçao..."
           className="input"
+          ref={descriptionRef}
         ></textarea>
 
 
         <select  
           className="select"
-          value={type}
-          onChange={e => setType(e.target.value)}
+          ref={typeRef}
         >
           <option value="user">user</option>
           <option value="admin">admin</option>
