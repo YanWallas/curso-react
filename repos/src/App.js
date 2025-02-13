@@ -1,10 +1,9 @@
 import React from "react";
+import RoutesApp from './routes';
 
 function App() {
   return (
-    <div>
-      <h1>Projeto</h1>
-    </div>
+    <RoutesApp/>
   );
 }
 
