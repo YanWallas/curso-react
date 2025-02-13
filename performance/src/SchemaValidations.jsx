@@ -1,6 +1,4 @@
 // import { useState, useRef } from 'react'
-import './App.css'
-import { Header } from './Header';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -14,7 +12,7 @@ const schema = z.object({
   })
 })
 
-function useSchema() {
+export function UseSchema() {
   // AQUI USANDO USESTATE
   // const [name, setName] = useState("")
   // const [email, setEmail] = useState("")
@@ -39,8 +37,7 @@ function useSchema() {
 
   return (
     <div className="container">
-      <h1>React</h1>
-      <Header/>
+      <h1>React</h1> 
 
       <form className="form" onSubmit={handleSubmit(handleSave)}>
         <input
@@ -102,4 +99,3 @@ function useSchema() {
   )
 }
 
-export default useSchema;
