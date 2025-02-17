@@ -15,7 +15,7 @@ export const Container = styled.div`
   border-radius: 4px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   padding: 30px;
-  margin: 80px auto;
+  margin: 30px auto;
 `;
 
 export const Owner = styled.header`
@@ -104,6 +104,26 @@ export const IssuesList = styled.ul`
         padding: 5px 7px;
         margin-left: 10px;
       }
+    }
+  }
+`;
+
+export const PageActions = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  button{
+    outline: 0;
+    border: 0;
+    background: #222;
+    color: #FFF;
+    padding: 5px 10px;
+    border-radius: 4px;
+
+    &:disabled{
+      cursor: not-allowed;
+      opacity: 0.5;
     }
   }
 `;
