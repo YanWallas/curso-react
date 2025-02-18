@@ -11,6 +11,11 @@ export const userSlice = createSlice({
   reducers: {
     createUser: (state, action) => {
 
+      if(action.payload.name.length < 3){
+        alert("PREENCHA UM NOME COM MAIS DE 3 LETRAS")
+        return { ...state }
+      }
+
       return {
         ...state,
         user:{
@@ -19,9 +24,16 @@ export const userSlice = createSlice({
           Address: null,
         }
       }
+    },
+    logoutUser: (state) => {
+
+      return {
+        ...state,
+        user: null,
+      }
     }
   }
 })
 
-export const { createUser } = userSlice.actions;
+export const { createUser, logoutUser } = userSlice.actions;
 export default userSlice.reducer;
